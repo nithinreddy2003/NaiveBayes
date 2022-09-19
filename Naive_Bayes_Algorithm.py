@@ -2,10 +2,10 @@ import streamlit as st
 import pickle
 pickle_in=open('Play_Tennis.pkl','rb')
 model=pickle.load(pickle_in)
-Outlook=st.number_input('Enter Outlook : ')
-Temperature=st.number_input('Enter Temperature : ')
-Humidity=st.number_input('Enter Humidity : ')
-Wind=st.number_input('Enter Wind : ')
+Outlook=st.selectbox('Enter Outlook : ',('Sunny','Overcast','Rain'))
+Temperature=st.selectbox('Enter Temperature : ',('Hot','Mild','Cool'))
+Humidity=st.selectbox('Enter Humidity : ',('High','Normal'))
+Wind=st.selectbox('Enter Wind : ',('Weak','Strong'))
 Value=""
 if st.button("PREDICT"):
   result=model.predict([[Outlook,Temperature,Humidity,Wind]])
